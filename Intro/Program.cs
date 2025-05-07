@@ -4,41 +4,26 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Enter Number 1 - 100: ");
-        string input = Console.ReadLine();
+        Console.WriteLine("Enter 4 number  :");
 
-        if (int.TryParse(input, out int number))
+        string result = "";
+
+        for (int i = 1; i <= 4; i++)
         {
-            if (number < 1 || number > 100)
+            Console.Write($"Number {i}: ");
+            string input = Console.ReadLine();
+
+            if (int.TryParse(input, out int digit) && digit >= 0 && digit <= 9)
             {
-                Console.WriteLine("Enter Number 1 - 100: ");
+                result += digit.ToString();
             }
             else
             {
-                bool divisibleBy3 = number % 3 == 0;
-                bool divisibleBy5 = number % 5 == 0;
-
-                if (divisibleBy3 && divisibleBy5)
-                {
-                    Console.WriteLine("FIZZ BUZZ ");
-                }
-                else if (divisibleBy3)
-                {
-                    Console.WriteLine("FIZZ");
-                }
-                else if (divisibleBy5)
-                {
-                    Console.WriteLine("BUZZ");
-                }
-                else
-                {
-                    Console.WriteLine(number);
-                }
+                Console.WriteLine("Enter number!");
+                i--;
             }
+
+            Console.WriteLine($"Otvet: {result}");
         }
-        else
-        {
-            Console.WriteLine("Enter Number 1 - 100: ");
-        }
-}
+    }
 }
