@@ -4,41 +4,20 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Enter Number 1 - 100: ");
-        string input = Console.ReadLine();
+        Console.Write("Введіть число: ");
+        string inputValue = Console.ReadLine();
 
-        if (int.TryParse(input, out int number))
+        Console.Write("Введіть відсоток: ");
+        string inputPercent = Console.ReadLine();
+
+        if (double.TryParse(inputValue, out double value) && double.TryParse(inputPercent, out double percent))
         {
-            if (number < 1 || number > 100)
-            {
-                Console.WriteLine("Enter Number 1 - 100: ");
-            }
-            else
-            {
-                bool divisibleBy3 = number % 3 == 0;
-                bool divisibleBy5 = number % 5 == 0;
-
-                if (divisibleBy3 && divisibleBy5)
-                {
-                    Console.WriteLine("FIZZ BUZZ ");
-                }
-                else if (divisibleBy3)
-                {
-                    Console.WriteLine("FIZZ");
-                }
-                else if (divisibleBy5)
-                {
-                    Console.WriteLine("BUZZ");
-                }
-                else
-                {
-                    Console.WriteLine(number);
-                }
-            }
+            double result = value * percent / 100;
+            Console.WriteLine($"{percent}% від {value} = {result}");
         }
         else
         {
-            Console.WriteLine("Enter Number 1 - 100: ");
+            Console.WriteLine("Некоректне введення. Введіть числові значення.");
         }
-}
+    }
 }
